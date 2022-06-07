@@ -1,0 +1,2 @@
+partials = bits of a page (header etc)
+pages = full pages (home)
