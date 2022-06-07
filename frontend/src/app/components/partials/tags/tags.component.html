@@ -1,0 +1,7 @@
+<!-- checks if tags has any values -->
+<div *ngIf="tags">
+    <!-- loops through tags and if clicked, will route to /tag/tag.name.. -->
+    <a *ngFor="let tag of tags" routerLink="/tag/{{ tag.name }}">
+    {{ tag.name }}({{ tag.count }})
+  </a>
+</div>

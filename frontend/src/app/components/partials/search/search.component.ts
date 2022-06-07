@@ -12,7 +12,8 @@ export class SearchComponent implements OnInit {
   //adding modifier allows class to access param. Without, only constructor can access
   constructor(activatedRoute:ActivatedRoute, private router:Router) {
     activatedRoute.params.subscribe((params) => {
-      if(params.searchTerm) this.searchTerm = params.searchTerm;
+      if(params.searchTerm)
+      this.searchTerm = params.searchTerm;
     });
   }
 

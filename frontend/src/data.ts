@@ -1,6 +1,8 @@
 // food data
 import {Food} from './app/shared/models/food';
+import { Tag } from './app/shared/models/tag';
 
+//export makes sample_foods accessible
 export const sample_foods: Food[] = [
   {
     id:'1',
@@ -68,4 +70,15 @@ export const sample_foods: Food[] = [
     imageUrl: 'assets/6-vegpizza.jpg',
     tags: ['FastFood', 'Pizza', 'Lunch'],
   },
+]
+
+export const sample_tags:Tag[] = [
+  { name: 'All', count: 6 },
+  { name: 'FastFood', count: 4 },
+  { name: 'Pizza', count: 2 },
+  { name: 'Lunch', count: 3 },
+  { name: 'SlowFood', count: 2 },
+  { name: 'Hamburger', count: 1 },
+  { name: 'Fry', count: 1 },
+  { name: 'Soup', count: 1 },
 ]
