@@ -1,0 +1,6 @@
+<div>
+    <input #s type="text" placeholder="Search the menu.." (keyup.enter)="search(s.value)" />
+    <!-- keyup.enter listens for enter button, once clicked runs search method with inserted value -->
+    <!-- s.value is related to #s, the var for the input text-->
+    <button (click)="search(s.value)">Search</button>
+</div>
