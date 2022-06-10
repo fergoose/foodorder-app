@@ -1,7 +1,9 @@
 <app-search></app-search>
 <app-tags></app-tags>
 <ul>
+    <!-- loops over foods array in .ts file and displays items below-->
     <li *ngFor="let food of foods">
+        <!-- on click, link added to url where subscribe hears it and dynamically changes the pages data through a service api -->
         <a routerLink="/food/{{ food.id }}">
 
             <!-- use [] when data is dynamic -->

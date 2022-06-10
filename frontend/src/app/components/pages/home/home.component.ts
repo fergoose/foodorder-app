@@ -12,9 +12,11 @@ export class HomeComponent implements OnInit {
 
   foods:Food[] = [];
   //variable is declared within constructor param
-  constructor(private foodService:FoodService, activatedRoute:ActivatedRoute) {
-    //checks for search
+  constructor(private foodService:FoodService, public activatedRoute:ActivatedRoute) {
+    //subscribe listens and dynamically changes the page if searched or tag clicked
     activatedRoute.params.subscribe((params) => {
+      console.log(params.searchTerm);
+      console.log(params.tag);
       if(params.searchTerm)
       this.foods = this.foodService.getAllFoodsBySearchTerm(params.searchTerm);
       else if(params.tag)
@@ -25,6 +27,7 @@ export class HomeComponent implements OnInit {
    }
 
   ngOnInit(): void {
+
   }
 
 }
