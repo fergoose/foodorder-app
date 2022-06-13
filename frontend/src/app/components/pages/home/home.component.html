@@ -1,5 +1,8 @@
 <app-search></app-search>
 <app-tags></app-tags>
+<!-- is visible when food is null/undefined OR length is 0 -->
+<app-not-found [visible]="!foods || !foods.length" resetLinkText="Reset Search">
+</app-not-found>
 <ul>
     <!-- loops over foods array in .ts file and displays items below-->
     <li *ngFor="let food of foods">
