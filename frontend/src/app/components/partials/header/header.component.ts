@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Food } from 'src/app/shared/models/food';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-header',
@@ -8,9 +8,16 @@ import { Food } from 'src/app/shared/models/food';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  cartQuantity=0;
+
+  constructor(private cartService:CartService) {
+    cartService.getCartObservable().subscribe((newCart) => {
+      this.cartQuantity = newCart.totalCount;
+    })
+  }
 
   ngOnInit(): void {
   }
+
 
 }

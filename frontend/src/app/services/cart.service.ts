@@ -19,16 +19,14 @@ export class CartService {
   }
 
   addToCart(food:Food):void{
-    //
     let cartItem =
-    //search through items array within cart
+    //search through items array within cart and check whether item being added is equal to an item in cart already(duplicate item - quantity will need increased instead)
     this.cart.items.find(
-      //item is a var to store result
       //function checks if both id's equal
       item => item.food.id === food.id
     );
 
-    //checks if item already in cart
+    //if cartItem exists, duplicate item trying to be added and method wont continue any further
     if(cartItem)
       return;
 
@@ -64,7 +62,7 @@ export class CartService {
     this.setCartToLocalStorage();
   }
 
-  //method to get the subject observable. returns as normal observable - converted as subjects could potentially be accessed outside this service
+  //method to get the subject observable. returns as normal observable - converted because subjects could potentially be accessed outside this service
   getCartObservable():Observable<Cart>{
     return this.cartSubject.asObservable();
   }
@@ -86,7 +84,7 @@ export class CartService {
     const cartJson = JSON.stringify(this.cart);
     localStorage.setItem('Cart', cartJson);
 
-    //will emit current cart to all subscribers, as BehaviourSubject does
+    //will emit current cart to all subscribers whenever cart is changed
     this.cartSubject.next(this.cart);
   }
 
